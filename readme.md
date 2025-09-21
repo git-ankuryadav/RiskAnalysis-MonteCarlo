@@ -6,7 +6,7 @@ This project performs quantitative risk analysis on Indian stock prices using Mo
 
 ## Project Overview
 
-The goal is to model possible future price movements of an Indian stock (e.g., Reliance Industries) using historical price data, simulate many possible price paths, and quantify the potential downside risk over a 1-month horizon accounting for market uncertainty.
+The goal is to model possible future price movements of an Indian stock (e.g., IBM) using historical price data, simulate many possible price paths, and quantify the potential downside risk over a 1-month horizon accounting for market uncertainty.
 
 ---
 
@@ -28,9 +28,6 @@ The goal is to model possible future price movements of an Indian stock (e.g., R
 
   - Plots sample simulated price paths showing potential future price ranges.
   - Plots histogram of simulated returns with VaR and ES clearly marked.
-
-- **Reporting and Documentation:**  
-  Designed for integration in a Jupyter notebook providing clear stepwise explanation, reproducibility, and interpretation of results.
 
 ---
 
