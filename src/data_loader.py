@@ -6,7 +6,7 @@ def download_stock_data(ticker, start_date, end_date):
     return data
 
 if __name__ == "__main__":
-    df = download_stock_data("IBM", "2020-01-01", "2023-12-30")
+    df = download_stock_data("COALINDIA.NS", "2020-01-01", "2023-12-30")
     df_cleaned = df[df['Open'].notnull()]
     df_cleaned.rename(columns={'Close': 'Closing_Price'}, inplace=True)
     df_cleaned = df_cleaned[['Closing_Price']].reset_index()

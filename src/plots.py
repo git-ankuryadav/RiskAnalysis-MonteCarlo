@@ -14,7 +14,8 @@ def plot_simulated_prices(simulated_prices, num_paths=50):
     plt.xlabel("Time Steps (Days)")
     plt.ylabel("Price")
     plt.grid(True)
-    plt.show()
+    plt.savefig("../plots/prices1.png")
+    # plt.show()
 
 
 def plot_returns_histogram(simulated_prices, initial_price, confidence_levels=[0.95, 0.99]):
@@ -39,17 +40,21 @@ def plot_returns_histogram(simulated_prices, initial_price, confidence_levels=[0
 
     plt.legend()
     plt.grid(True)
-    plt.show()
+    plt.savefig("../plots/histogram1.png")
+    # plt.show()
 
 
 if __name__ == "__main__":
     # Assuming you have `simulated_paths` and `S0` from previous steps
     from parameter_estimation import estimate_params
+    from parameter_estimation import estimate_jump_params
+    from monte_carlo import jump_diffusion_simulation
     from monte_carlo import monte_carlo_simulation
     
 
-    df = pd.read_csv("../data/historicalData.csv")
+    df = pd.read_csv("../data/historicalData2.csv")
     mu, sigma = estimate_params(df)
+    lamb, mu_j, sigma_j = estimate_jump_params(df['Log_Return'])
 
     # Set simulation parameters
     S0 = df['Closing_Price'].iloc[-1]  # last closing price
@@ -57,8 +62,7 @@ if __name__ == "__main__":
     steps = 21  # roughly 21 trading days in a month
     paths = 1000  # number of simulated paths
 
-    simulated_paths = monte_carlo_simulation(S0, mu, sigma, T, steps, paths)
+    simulated_paths = jump_diffusion_simulation(S0, mu, sigma, T, steps, paths, lamb, mu_j, sigma_j)
 
-    # Example calls:
-    # plot_simulated_prices(simulated_paths, num_paths=1000)
+    plot_simulated_prices(simulated_paths, num_paths=1000)
     plot_returns_histogram(simulated_paths, S0, confidence_levels=[0.95, 0.99])
