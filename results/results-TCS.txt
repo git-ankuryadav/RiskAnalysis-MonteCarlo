@@ -1,0 +1,15 @@
+TCS Results: 
+
+Confidence Level: 95%
+  VaR: -0.0989
+  Expected Shortfall (ES): -0.1248
+
+Confidence Level: 99%
+  VaR: -0.1392
+  Expected Shortfall (ES): -0.1614
+
+Worst 30-day return: -0.1368
+Average of worst 4 returns: -0.1349
+
+Best 30-day return: 0.2283
+Average 30-day return: 0.0132

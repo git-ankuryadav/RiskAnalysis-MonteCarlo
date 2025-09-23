@@ -1,0 +1,15 @@
+Reliance Results: 
+
+Confidence Level: 95%
+  VaR: -0.1107
+  Expected Shortfall (ES): -0.1429
+
+Confidence Level: 99%
+  VaR: -0.1639
+  Expected Shortfall (ES): -0.1842
+
+Worst 30-day return: -0.1661
+Average of worst 4 returns: -0.1478
+
+Best 30-day return: 0.2423
+Average 30-day return: 0.0140

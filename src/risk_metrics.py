@@ -36,7 +36,7 @@ if __name__ == "__main__":
     from monte_carlo import jump_diffusion_simulation
     
 
-    df = pd.read_csv("../data/historicalData2.csv")
+    df = pd.read_csv("../data/historicalData.csv")
     mu, sigma = estimate_params(df)
     lamb, mu_j, sigma_j = estimate_jump_params(df['Log_Return'])
 
@@ -67,9 +67,26 @@ if __name__ == "__main__":
     max_return = np.max(rolling_returns)
     mean_return = np.mean(rolling_returns)
 
+    worst_4_returns = np.sort(rolling_returns)[:4]  # Get 4 smallest (worst) returns
+    avg_worst_4 = np.mean(worst_4_returns)
+
     print(f"Worst 30-day return: {min_return:.4f}")
+    print(f"Average of worst 4 returns: {avg_worst_4:.4f}")
     print(f"Best 30-day return: {max_return:.4f}")
     print(f"Average 30-day return: {mean_return:.4f}")
+
+with open("../results/results-coalindia.txt", "w") as file:
+    file.write("COAL INDIA Results: \n\n")
+    for cl, metrics in risk_metrics.items():
+        file.write(f"Confidence Level: {int(cl*100)}%\n")
+        file.write(f"  VaR: {metrics['VaR']:.4f}\n")
+        file.write(f"  Expected Shortfall (ES): {metrics['ES']:.4f}\n\n")
+
+    file.write(f"Worst 30-day return: {min_return:.4f}\n")
+    file.write(f"Average of worst 4 returns: {avg_worst_4:.4f}\n\n")
+    file.write(f"Best 30-day return: {max_return:.4f}\n")
+    file.write(f"Average 30-day return: {mean_return:.4f}\n")
+
 
 
     

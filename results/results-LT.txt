@@ -1,0 +1,15 @@
+L&T Results: 
+
+Confidence Level: 95%
+  VaR: -0.0961
+  Expected Shortfall (ES): -0.1271
+
+Confidence Level: 99%
+  VaR: -0.1406
+  Expected Shortfall (ES): -0.1737
+
+Worst 30-day return: -0.1842
+Average of worst 4 returns: -0.1604
+
+Best 30-day return: 0.2601
+Average 30-day return: 0.0348
